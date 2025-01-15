@@ -7,7 +7,8 @@ from BaseClasses import Item
 class SkyrimItemCategory(IntEnum):
     SKIP = 0,
     EVENT = 1,
-    CHEESE = 2
+    CHEESE = 2,
+    KEY_ITEM = 3
 
 
 class SkyrimItemData(NamedTuple):

@@ -189,7 +189,7 @@ class SkyrimWorld(World):
         
     def fill_slot_data(self) -> Dict[str, object]:
         slot_data: Dict[str, object] = {}
-        name_to_Skyrim_code = {item.name: item.Skyrim_code for item in item_dictionary.values()}
+        name_to_skyrim_code = {item.name: item.skyrim_code for item in item_dictionary.values()}
         # Create the mandatory lists to generate the player's output file
         items_id = []
         items_address = []
@@ -200,15 +200,15 @@ class SkyrimWorld(World):
             if location.item.player == self.player:
                 #we are the receiver of the item
                 items_id.append(location.item.code)
-                items_address.append(name_to_Skyrim_code[location.item.name])
+                items_address.append(name_to_skyrim_code[location.item.name])
 
 
             if location.player == self.player:
                 #we are the sender of the location check
-                locations_address.append(item_dictionary[location_dictionary[location.name].default_item].Skyrim_code)
+                locations_address.append(item_dictionary[location_dictionary[location.name].default_item].skyrim_code)
                 locations_id.append(location.address)
                 if location.item.player == self.player:
-                    locations_target.append(name_to_Skyrim_code[location.item.name])
+                    locations_target.append(name_to_skyrim_code[location.item.name])
                 else:
                     locations_target.append(0)
 

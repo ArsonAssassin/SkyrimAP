@@ -10,6 +10,6 @@ class GuaranteedItemsOption(ItemDict):
 
 
 @dataclass
-class DSROption(PerGameCommonOptions):
+class SkyrimOption(PerGameCommonOptions):
     #goal: GoalOption
     guaranteed_items: GuaranteedItemsOption

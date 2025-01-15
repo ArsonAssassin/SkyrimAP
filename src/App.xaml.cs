@@ -9,6 +9,7 @@ using System.Net.Sockets;
 using System.Net;
 using System.Text;
 using System.Text.Json;
+using System.Text.RegularExpressions;
 
 namespace SkyrimAP
 {
@@ -53,26 +54,26 @@ namespace SkyrimAP
                 Client.CancelMonitors();
             }
             GenericGameClient client = new GenericGameClient("SkyrimSE");
-            //var connected = client.Connect();
-            //if (!connected)
-            //{
-            //    Log.Logger.Error("Skyrim not running, open Skyrim before connecting!");
-            //    Context.ConnectButtonEnabled = true;
-            //    return;
-            //}
+            var connected = client.Connect();
+            if (!connected)
+            {
+                Log.Logger.Error("Skyrim not running, open Skyrim before connecting!");
+                Context.ConnectButtonEnabled = true;
+                return;
+            }
 
-            //Client = new ArchipelagoClient(client);
+            Client = new ArchipelagoClient(client);
 
-            //AllItems = Helpers.GetAllItems();
-            //Client.Connected += OnConnected;
-            //Client.Disconnected += OnDisconnected;
+            AllItems = Helpers.GetAllItems();
+            Client.Connected += OnConnected;
+            Client.Disconnected += OnDisconnected;
 
-            //await Client.Connect(e.Host, "Skyrim");
+            await Client.Connect(e.Host, "Skyrim");
 
-            //Client.ItemReceived += Client_ItemReceived;
-            //Client.MessageReceived += Client_MessageReceived;
+            Client.ItemReceived += Client_ItemReceived;
+            Client.MessageReceived += Client_MessageReceived;
 
-            //await Client.Login(e.Slot, !string.IsNullOrWhiteSpace(e.Password) ? e.Password : null);
+            await Client.Login(e.Slot, !string.IsNullOrWhiteSpace(e.Password) ? e.Password : null);
 
             StartListener();
 
@@ -109,6 +110,18 @@ namespace SkyrimAP
                             if(skyMessage.type == "cheese_update")
                             {
                                 Log.Logger.Information("{cheese}", skyMessage.data);
+                                var match = Regex.Match(skyMessage.data, @"Player has (\d+) cheese");
+                                if (match.Success)
+                                {
+                                    // Extract the captured group (the number)
+                                    var cheeseCount = int.Parse(match.Groups[1].Value);
+                                    for (int i = 0; i < cheeseCount; i++)
+                                    {
+                                        var location = new Archipelago.Core.Models.Location() { Id = 512340000 + i };
+                                        Client.SendLocation(location);
+                                        await Task.Delay(50);
+                                    }
+                                }
                             }
                             else if(skyMessage.type == "location_change")
                             {
