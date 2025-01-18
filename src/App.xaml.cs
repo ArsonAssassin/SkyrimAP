@@ -146,6 +146,12 @@ namespace SkyrimAP
             var itemId = e.Item.Id;
             var itemToReceive = AllItems.FirstOrDefault(x => x.ApId == itemId);
 
+
+                var tcp = new SkyrimTcpClient();
+                tcp.SendMessageAsync(new SkyrimMessage() { type = "receive_item", data = "{ \"Name\": \"" + "Cheese" + "\", \"Id\":\"" + "12345" + "\", \"Quantity\":1}" });
+            
+
+
         }
         private static void LogItem(Item item)
         {

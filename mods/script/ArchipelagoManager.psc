@@ -37,6 +37,10 @@ Function InitializeScript()
     EndIf
 EndFunction
 
+Function ReceiveCommand(string jsonString)
+	Debug.Notification("Archipelago Manager: Message Received- " + jsonString)
+EndFunction
+
 int function CountCheese()
     ; Declare an array to hold the items
     Form[] specificItems = new Form[6]
