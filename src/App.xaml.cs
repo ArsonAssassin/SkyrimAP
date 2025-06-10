@@ -148,7 +148,7 @@ namespace SkyrimAP
 
 
                 var tcp = new SkyrimTcpClient();
-                tcp.SendMessageAsync(new SkyrimMessage() { type = "receive_item", data = "{ \"Name\": \"" + "Cheese" + "\", \"Id\":\"" + "12345" + "\", \"Quantity\":1}" });
+                tcp.SendMessageAsync(new SkyrimMessage() { type = "receive_item", data = $"{0x000AEB11},1" });
             
 
 
