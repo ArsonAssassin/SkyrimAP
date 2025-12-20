@@ -7,8 +7,8 @@ from BaseClasses import Item
 class SkyrimItemCategory(IntEnum):
     SKIP = 0,
     EVENT = 1,
-    CHEESE = 2,
-    KEY_ITEM = 3
+    KEY_ITEM = 2,
+    CONSUMABLE = 3
 
 
 class SkyrimItemData(NamedTuple):
@@ -26,12 +26,13 @@ class SkyrimItem(Item):
         return {item_data.name: (base_id + item_data.skyrim_code if item_data.skyrim_code is not None else None) for item_data in _all_items}
 
 key_item_names = {
-"Cheese"
 }
 
 _all_items = [SkyrimItemData(row[0], row[1], row[2]) for row in [    
    
-    ("Cheese", 1000, SkyrimItemCategory.CHEESE),
+    ("Potion of Vigorous Healing", 0, SkyrimItemCategory.CONSUMABLE),
+    ("Potion of Vigorous Magicka", 1, SkyrimItemCategory.CONSUMABLE),
+    ("Potion of Vigorous Stamina", 2, SkyrimItemCategory.CONSUMABLE),
 ]]
 
 item_descriptions = {

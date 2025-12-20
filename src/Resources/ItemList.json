@@ -1,0 +1,17 @@
+﻿[
+	{
+		"Id": "0003eae3",
+		"Name": "Potion of Vigorous Healing",
+		"ApId": "512340000"
+	},
+	{
+		"Id": "0003eae4",
+		"Name": "Potion of Vigorous Magicka",
+		"ApId": "512340001"
+	},
+	{
+		"Id": "0003eae8",
+		"Name": "Potion of Vigorous Stamina",
+		"ApId": "512340002"
+	}
+]

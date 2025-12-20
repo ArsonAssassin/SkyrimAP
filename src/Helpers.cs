@@ -1,8 +1,10 @@
-﻿using System;
+﻿using SkyrimAP.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace SkyrimAP
@@ -21,10 +23,12 @@ namespace SkyrimAP
         }
         public static List<SkyrimItem> GetAllItems()
         {
-            var results = new List<SkyrimItem>();
-
-           // results = results.Concat(GetConsumables()).ToList();
-
+            var results = JsonSerializer.Deserialize<List<SkyrimItem>>(OpenEmbeddedResource("SkyrimAP.ItemList.json"));
+            return results;
+        }
+        public static List<SkyrimQuest> GetAllQuests()
+        {
+            var results = JsonSerializer.Deserialize<List<SkyrimQuest>>(OpenEmbeddedResource("SkyrimAP.QuestList.json"));
             return results;
         }
     }

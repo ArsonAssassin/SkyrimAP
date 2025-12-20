@@ -10,6 +10,8 @@ using System.Net;
 using System.Text;
 using System.Text.Json;
 using System.Text.RegularExpressions;
+using SkyrimAP.Models;
+using Archipelago.Core.GameClients;
 
 namespace SkyrimAP
 {
@@ -18,20 +20,14 @@ namespace SkyrimAP
         static MainPageViewModel Context;
         public static ArchipelagoClient Client { get; set; }
         public static List<SkyrimItem> AllItems { get; set; }
+        public static List<SkyrimQuest> AllQuests { get; set; }
         private static readonly object _lockObject = new object();
+        private SkyrimTcpClient TcpSender { get; set; }
         public App()
         {
             InitializeComponent();
-            var options = new GuiDesignOptions
-            {
-                BackgroundColor = Color.FromArgb("FF333333"),
-                ButtonColor = Color.FromArgb("FF666666"),
-                ButtonTextColor = Color.FromArgb("FF000000"),
-                Title = "SkyrimAP - Skyrim Archipelago",
 
-            };
-
-            Context = new MainPageViewModel(options);
+            Context = new MainPageViewModel();
             Context.ConnectClicked += Context_ConnectClicked;
             Context.CommandReceived += (e, a) =>
             {
@@ -65,6 +61,7 @@ namespace SkyrimAP
             Client = new ArchipelagoClient(client);
 
             AllItems = Helpers.GetAllItems();
+            AllQuests = Helpers.GetAllQuests();
             Client.Connected += OnConnected;
             Client.Disconnected += OnDisconnected;
 
@@ -74,16 +71,9 @@ namespace SkyrimAP
             Client.MessageReceived += Client_MessageReceived;
 
             await Client.Login(e.Slot, !string.IsNullOrWhiteSpace(e.Password) ? e.Password : null);
-
+            TcpSender = new SkyrimTcpClient();
             StartListener();
-
-        //    var bossLocations = Helpers.GetBossFlagLocations();
-
-           // var goalLocation = bossLocations.First(x => x.Name.Contains("Lord of Cinder"));
-           // Archipelago.Core.Util.Memory.MonitorAddressBitForAction(goalLocation.Address, goalLocation.AddressBit, () => Client.SendGoalCompletion());
-
-          //  Client.MonitorLocations(bossLocations);
-
+            InitializeQuests();
             Context.ConnectButtonEnabled = true;
         }
         private async Task StartListener()
@@ -107,30 +97,38 @@ namespace SkyrimAP
                         {
                             Log.Logger.Information($"Received: {message}");
                             var skyMessage = JsonSerializer.Deserialize<SkyrimMessage>(message);
-                            if(skyMessage.type == "cheese_update")
+
+                            switch (skyMessage.type)
                             {
-                                Log.Logger.Information("{cheese}", skyMessage.data);
-                                var match = Regex.Match(skyMessage.data, @"Player has (\d+) cheese");
-                                if (match.Success)
-                                {
-                                    // Extract the captured group (the number)
-                                    var cheeseCount = int.Parse(match.Groups[1].Value);
-                                    for (int i = 0; i < cheeseCount; i++)
-                                    {
-                                        var location = new Archipelago.Core.Models.Location() { Id = 512340000 + i };
-                                        Client.SendLocation(location);
-                                        await Task.Delay(50);
-                                    }
-                                }
+                                case "quest_complete":
+                                    var questId = skyMessage.data;
+                                    var quest = AllQuests.First(x => x.Id == questId);
+                                    var location = new Archipelago.Core.Models.Location() { Id = (int)quest.ApId };
+                                    Client.SendLocation(location);
+                                    break;
+                                case "location_change":
+                                    Log.Logger.Information("Player moved to {location}", skyMessage.data);
+                                    break;
+                                case "position_update":
+                                    Log.Logger.Verbose("Updating Player co-ords");
+                                    break;
+                                default:
+                                    Log.Warning("Unknown message type received");
+                                    break;
                             }
-                            else if(skyMessage.type == "location_change")
-                            {
-                                Log.Logger.Information("Player moved to {location}", skyMessage.data);
-                            }
+
                         }
                     }
                 }
             }
+        }
+
+        private void InitializeQuests()
+        {
+            Log.Logger.Information($"Initializing Quest Listener");
+            var idList = AllQuests.Select(x => x.Id).ToList();
+            Log.Logger.Information($"{idList.Count} quests found");
+            TcpSender.SendMessageAsync(new SkyrimMessage() { type = "init_quests", data = JsonSerializer.Serialize(idList) });
         }
         private void Client_MessageReceived(object? sender, Archipelago.Core.Models.MessageReceivedEventArgs e)
         {
@@ -140,17 +138,13 @@ namespace SkyrimAP
             }
             Log.Logger.Information(JsonSerializer.Serialize(e.Message));
         }
-        private static void Client_ItemReceived(object? sender, ItemReceivedEventArgs e)
+        private void Client_ItemReceived(object? sender, ItemReceivedEventArgs e)
         {
             LogItem(e.Item);
             var itemId = e.Item.Id;
             var itemToReceive = AllItems.FirstOrDefault(x => x.ApId == itemId);
 
-
-                var tcp = new SkyrimTcpClient();
-                tcp.SendMessageAsync(new SkyrimMessage() { type = "receive_item", data = $"{0x000AEB11},1" });
-            
-
+            TcpSender.SendMessageAsync(new SkyrimMessage() { type = "receive_item", data = $"{itemToReceive.Id},1" });
 
         }
         private static void LogItem(Item item)
@@ -159,7 +153,6 @@ namespace SkyrimAP
             {
                 new TextSpan(){Text = $"[{item.Id.ToString()}] -", TextColor = Color.FromRgb(255, 255, 255)},
                 new TextSpan(){Text = $"{item.Name}", TextColor = Color.FromRgb(200, 255, 200)},
-                new TextSpan(){Text = $"x{item.Quantity.ToString()}", TextColor = Color.FromRgb(200, 255, 200)}
             });
             lock (_lockObject)
             {

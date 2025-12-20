@@ -58,14 +58,14 @@ class SkyrimWorld(World):
 
     def generate_early(self):
         self.enabled_location_categories.add(SkyrimLocationCategory.EVENT),
-        self.enabled_location_categories.add(SkyrimLocationCategory.CHEESE),
+        self.enabled_location_categories.add(SkyrimLocationCategory.MAIN_QUEST),
 
     def create_regions(self):
         # Create Regions
         regions: Dict[str, Region] = {}
         regions["Menu"] = self.create_region("Menu", [])
         regions.update({region_name: self.create_region(region_name, location_tables[region_name]) for region_name in [
-        "Cheese"
+        "Main Quest"
                 ]})
        
         # Connect Regions
@@ -73,8 +73,7 @@ class SkyrimWorld(World):
             connection = Entrance(self.player, f"{from_region} -> {to_region}", regions[from_region])
             regions[from_region].exits.append(connection)
             connection.connect(regions[to_region])
-            #print(f"Connecting {from_region} to {to_region} Using entrance: " + connection.name) 
-        create_connection("Menu", "Cheese")    
+        create_connection("Menu", "Main Quest")    
       
       
         
@@ -164,6 +163,7 @@ class SkyrimWorld(World):
 
     def create_item(self, name: str) -> Item:
         useful_categories = {
+        SkyrimItemCategory.CONSUMABLE
         }
         data = self.item_name_to_id[name]
 
@@ -178,14 +178,14 @@ class SkyrimWorld(World):
 
 
     def get_filler_item_name(self) -> str:
-        return "Cheese"
+        return "Potion of Vigorous Healing"
     
     def set_rules(self) -> None:           
         #print("Setting rules")   
         for region in self.multiworld.get_regions(self.player):
             for location in region.locations:
                     set_rule(location, lambda state: True)        
-        self.multiworld.completion_condition[self.player] = lambda state: state.has("Cheese", self.player, 100) 
+        self.multiworld.completion_condition[self.player] = lambda state: state.can_reach_location("Dragonslayer", self.player) 
         
     def fill_slot_data(self) -> Dict[str, object]:
         slot_data: Dict[str, object] = {}

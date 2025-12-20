@@ -53,7 +53,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Archipelago.Core.MauiGUI" Version="0.0.19" />
+	  <None Remove="Resources\ItemList.json" />
+	  <None Remove="Resources\QuestList.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Resources\ItemList.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	  <EmbeddedResource Include="Resources\QuestList.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </EmbeddedResource>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Archipelago.Core" Version="1.1.14" />
+		<PackageReference Include="Archipelago.Core.MauiGUI" Version="0.1.2" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.1" />
