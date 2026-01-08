@@ -1,4 +1,5 @@
 ﻿[
+  //Main Quests
   {
     "Id": "MQ101",
     "Name": "Unbound",
@@ -118,5 +119,657 @@
     "Name": "Dragonslayer",
     "ApId": "512340019",
     "Chain": 1
+  },
+  //Thieves Guild Quests
+  {
+    "Id": "TG00",
+    "Name": "A Chance Arrangement",
+    "ApId": "",
+    "Chain": 2
+  },
+  {
+    "Id": "TG01",
+    "Name": "Taking Care of Business",
+    "ApId": "",
+    "Chain": 2
+  },
+  {
+    "Id": "TG02",
+    "Name": "Loud and Clear",
+    "ApId": "",
+    "Chain": 2
+  },
+  {
+    "Id": "TG03",
+    "Name": "Dampened Spirits",
+    "ApId": "",
+    "Chain": 2
+  },
+  {
+    "Id": "TG04",
+    "Name": "Scoundrel's Folly",
+    "ApId": "",
+    "Chain": 2
+  },
+  {
+    "Id": "TG05",
+    "Name": "Speaking with Silence",
+    "ApId": "",
+    "Chain": 2
+  },
+  {
+    "Id": "TG06",
+    "Name": "Hard Answers",
+    "ApId": "",
+    "Chain": 2
+  },
+  {
+    "Id": "TG07",
+    "Name": "The Pursuit",
+    "ApId": "",
+    "Chain": 2
+  },
+  {
+    "Id": "TG08A",
+    "Name": "Trinity Restored",
+    "ApId": "",
+    "Chain": 2
+  },
+  {
+    "Id": "TG08B",
+    "Name": "Blindsighted",
+    "ApId": "",
+    "Chain": 2
+  },
+  {
+    "Id": "TG09",
+    "Name": "Darkness Returns",
+    "ApId": "",
+    "Chain": 2
+  },
+  //Dark Brotherhood Quests
+  {
+    "Id": "DB01",
+    "Name": "Innocence Lost",
+    "ApId": "",
+    "Chain": 3
+  },
+  {
+    "Id": "DB02",
+    "Name": "With Friends Like These",
+    "ApId": "",
+    "Chain": 3
+  },
+  {
+    "Id": "DB02a",
+    "Name": "Sanctuary",
+    "ApId": "",
+    "Chain": 3
+  },
+  {
+    "Id": "DB03",
+    "Name": "Mourning Never Comes",
+    "ApId": "",
+    "Chain": 3
+  },
+  {
+    "Id": "DB04",
+    "Name": "Whispers in the Dark",
+    "ApId": "",
+    "Chain": 3
+  },
+  {
+    "Id": "DB04a",
+    "Name": "The Silence has been Broken",
+    "ApId": "",
+    "Chain": 3
+  },
+  {
+    "Id": "DB05",
+    "Name": "Bound until Death",
+    "ApId": "",
+    "Chain": 3
+  },
+  {
+    "Id": "DB06",
+    "Name": "Breaching Security",
+    "ApId": "",
+    "Chain": 3
+  },
+  {
+    "Id": "DB07",
+    "Name": "The Cure for Madness",
+    "ApId": "",
+    "Chain": 3
+  },
+  {
+    "Id": "DB08",
+    "Name": "Recipe for Disaster",
+    "ApId": "",
+    "Chain": 3
+  },
+  {
+    "Id": "DB09",
+    "Name": "To Kill an Empire",
+    "ApId": "",
+    "Chain": 3
+  },
+  {
+    "Id": "DB10",
+    "Name": "Death Incarnate",
+    "ApId": "",
+    "Chain": 3
+  },
+  {
+    "Id": "DB11",
+    "Name": "Hail Sithis!",
+    "ApId": "",
+    "Chain": 3
+  },
+  //College of Winterhold Quests
+  {
+    "Id": "MG01",
+    "Name": "First Lessons",
+    "ApId": "",
+    "Chain": 4
+  },
+  {
+    "Id": "MG02",
+    "Name": "Under Saarthal",
+    "ApId": "",
+    "Chain": 4
+  },
+  {
+    "Id": "MG03",
+    "Name": "Hitting the Books",
+    "ApId": "",
+    "Chain": 4
+  },
+  {
+    "Id": "MG04",
+    "Name": "Good Intentions",
+    "ApId": "",
+    "Chain": 4
+  },
+  {
+    "Id": "MG06",
+    "Name": "Revealing the Unseen",
+    "ApId": "",
+    "Chain": 4
+  },
+  {
+    "Id": "MG05",
+    "Name": "Containment",
+    "ApId": "",
+    "Chain": 4
+  },
+  {
+    "Id": "MG07",
+    "Name": "The Staff of Magnus",
+    "ApId": "",
+    "Chain": 4
+  },
+  {
+    "Id": "MG08",
+    "Name": "The Eye of Magnus",
+    "ApId": "",
+    "Chain": 4
+  },
+  //Companions Quests
+  {
+    "Id": "C00",
+    "Name": "Take Up Arms",
+    "ApId": "",
+    "Chain": 5
+  },
+  {
+    "Id": "C01",
+    "Name": "Proving Honor",
+    "ApId": "",
+    "Chain": 5
+  },
+  {
+    "Id": "C03",
+    "Name": "The Silver Hand",
+    "ApId": "",
+    "Chain": 5
+  },
+  {
+    "Id": "C04",
+    "Name": "Blood's Honor",
+    "ApId": "",
+    "Chain": 5
+  },
+  {
+    "Id": "C05",
+    "Name": "Purity of Revenge",
+    "ApId": "",
+    "Chain": 5
+  },
+  {
+    "Id": "C06",
+    "Name": "Glory of the Dead",
+    "ApId": "",
+    "Chain": 5
+  },
+  //Stormcloaks Quests
+  {
+    "Id": "CW01B",
+    "Name": "Joining the Stormcloaks",
+    "ApId": "",
+    "Chain": 6
+  },
+  {
+    "Id": "CW02B",
+    "Name": "The Jagged Crown(Stormcloaks)",
+    "ApId": "",
+    "Chain": 6
+  },
+  {
+    "Id": "CW03",
+    "Name": "Message to Whiterun(Stormcloaks)",
+    "ApId": "",
+    "Chain": 6
+  },
+  {
+    "Id": "CWSiegeObj",
+    "Name": "Battle for Whiterun(Stormcloaks)",
+    "ApId": "",
+    "Chain": 6
+  },
+  {
+    "Id": "CWMission04",
+    "Name": "Rescue from Fort Neugrad",
+    "ApId": "",
+    "Chain": 6
+  },
+  {
+    "Id": "CWMission07",
+    "Name": "Compelling Tribute(Stormcloaks)",
+    "ApId": "",
+    "Chain": 6
+  },
+  {
+    "Id": "",
+    "Name": "The Battle for Fort Sungard(Stormcloaks)",
+    "ApId": "",
+    "Chain": 6
+  },
+  {
+    "Id": "CWMission03",
+    "Name": "A False Front(Stormcloaks)",
+    "ApId": "",
+    "Chain": 6
+  },
+  {
+    "Id": "CWFortSiegeFort",
+    "Name": "The Battle for Fort Snowhawk(Stormcloaks)",
+    "ApId": "",
+    "Chain": 6
+  },
+  {
+    "Id": "CWFortSiegeFort ",
+    "Name": "The Battle for Fort Dunstad(Stormcloaks)",
+    "ApId": "",
+    "Chain": 6
+  },
+  {
+    "Id": "CWFortSiegeFort",
+    "Name": "The Battle for Fort Kastav",
+    "ApId": "",
+    "Chain": 6
+  },
+  {
+    "Id": "CWFortSiegeFort",
+    "Name": "The Battle for Fort Greenwall(Stormcloaks)",
+    "ApId": "",
+    "Chain": 6
+  },
+  {
+    "Id": "CWFortSiegeFort",
+    "Name": "The Battle for Fort Hraggstad",
+    "ApId": "",
+    "Chain": 6
+  },
+  {
+    "Id": "CWSiegeObj",
+    "Name": "Battle for Solitude",
+    "ApId": "",
+    "Chain": 6
+  },
+  {
+    "Id": "CWObj",
+    "Name": "Liberation of Skyrim",
+    "ApId": "",
+    "Chain": 6
+  },
+  //Imperials Quests
+  {
+    "Id": "CW001A",
+    "Name": "Joining the Legion",
+    "ApId": "",
+    "Chain": 7
+  },
+  {
+    "Id": "CW02A",
+    "Name": "The Jagged Crown(Imperials)",
+    "ApId": "",
+    "Chain": 7
+  },
+  {
+    "Id": "CW03",
+    "Name": "Message to Whiterun(Imperials)",
+    "ApId": "",
+    "Chain": 7
+  },
+  {
+    "Id": "",
+    "Name": "Battle for Whiterun(Imperials)",
+    "ApId": "",
+    "Chain": 7
+  },
+  {
+    "Id": "CWMission03",
+    "Name": "A False Front(Imperials)",
+    "ApId": "",
+    "Chain": 7
+  },
+  {
+    "Id": "CWFortSiegeFort",
+    "Name": "The Battle for Fort Dunstad(Imperials)",
+    "ApId": "",
+    "Chain": 7
+  },
+  {
+    "Id": "CWMission07",
+    "Name": "Compelling Tribute(Imperials)",
+    "ApId": "",
+    "Chain": 7
+  },
+  {
+    "Id": "CWFortSiegeFort",
+    "Name": "The Battle for Fort Greenwall(Imperials)",
+    "ApId": "",
+    "Chain": 7
+  },
+  {
+    "Id": "CWMission04",
+    "Name": "Rescue from Fort Kastav",
+    "ApId": "",
+    "Chain": 7
+  },
+  {
+    "Id": "CWFortSiegeFort",
+    "Name": "The Battle for Fort Snowhawk(Imperials)",
+    "ApId": "",
+    "Chain": 7
+  },
+  {
+    "Id": "CWFortSiegeFort",
+    "Name": "The Battle for Fort Neugrad",
+    "ApId": "",
+    "Chain": 7
+  },
+  {
+    "Id": "CWFortSiegeFort",
+    "Name": "The Battle for Fort Sungard(Imperials)",
+    "ApId": "",
+    "Chain": 7
+  },
+  {
+    "Id": "CWFortSiegeFort",
+    "Name": "The Battle for Fort Amol",
+    "ApId": "",
+    "Chain": 7
+  },
+  {
+    "Id": "CWSiegeObj",
+    "Name": "Battle for Windhelm",
+    "ApId": "",
+    "Chain": 7
+  },
+  {
+    "Id": "CWObj",
+    "Name": "Reunification of Skyrim",
+    "ApId": "",
+    "Chain": 7
+  },
+  //Daedric Quests
+  {
+    "Id": "DA01",
+    "Name": "The Black Star",
+    "ApId": "",
+    "Chain": 8
+  },
+  {
+    "Id": "DA02",
+    "Name": "Boethiah's Calling",
+    "ApId": "",
+    "Chain": 8
+  },
+  {
+    "Id": "DA03",
+    "Name": "A Daedra's Best Friend",
+    "ApId": "",
+    "Chain": 8
+  },
+  {
+    "Id": "DA04",
+    "Name": "Discerning the Transmundane",
+    "ApId": "",
+    "Chain": 8
+  },
+  {
+    "Id": "DA05",
+    "Name": "Ill Met by Moonlight",
+    "ApId": "",
+    "Chain": 8
+  },
+  {
+    "Id": "DA06",
+    "Name": "The Cursed Tribe",
+    "ApId": "",
+    "Chain": 8
+  },
+  {
+    "Id": "DA07",
+    "Name": "Pieces of the Past",
+    "ApId": "",
+    "Chain": 8
+  },
+  {
+    "Id": "DA08",
+    "Name": "The Whispering Door",
+    "ApId": "",
+    "Chain": 8
+  },
+  {
+    "Id": "DA09",
+    "Name": "The Break of Dawn",
+    "ApId": "",
+    "Chain": 8
+  },
+  {
+    "Id": "DA10",
+    "Name": "The House of Horrors",
+    "ApId": "",
+    "Chain": 8
+  },
+  {
+    "Id": "DA11",
+    "Name": "The Taste of Death",
+    "ApId": "",
+    "Chain": 8
+  },
+  {
+    "Id": "DA13",
+    "Name": "The Only Cure",
+    "ApId": "",
+    "Chain": 8
+  },
+  {
+    "Id": "DA14",
+    "Name": "A Night to Remember",
+    "ApId": "",
+    "Chain": 8
+  },
+  {
+    "Id": "DA15",
+    "Name": "The Mind of Madness",
+    "ApId": "",
+    "Chain": 8
+  },
+  {
+    "Id": "DA16",
+    "Name": "Waking Nightmare",
+    "ApId": "",
+    "Chain": 8
+  },
+  //Dawnguard Quests
+  {
+    "Id": "DLC1VQ01MiscObjective",
+    "Name": "Dawnguard",
+    "ApId": "",
+    "Chain": 9
+  },
+  {
+    "Id": "DLC1VQ01",
+    "Name": "Awakening",
+    "ApId": "",
+    "Chain": 9
+  },
+  {
+    "Id": "DLC1VQ02",
+    "Name": "Bloodline",
+    "ApId": "",
+    "Chain": 9
+  },
+  {
+    "Id": "DLC1HunterBaseIntro",
+    "Name": "A New Order",
+    "ApId": "",
+    "Chain": 9
+  },
+  {
+    "Id": "DLC1VQ03Hunter",
+    "Name": "Prophet(Dawnguard)",
+    "ApId": "",
+    "Chain": 9
+  },
+  {
+    "Id": "DLC1VampireBaseIntro",
+    "Name": "The Bloodstone Chalice",
+    "ApId": "",
+    "Chain": 9
+  },
+  {
+    "Id": "DLC1VQ03Vampire",
+    "Name": "Prophet(Vampire)",
+    "ApId": "",
+    "Chain": 9
+  },
+  {
+    "Id": "DLC1VQ04",
+    "Name": "Chasing Echoes",
+    "ApId": "",
+    "Chain": 9
+  },
+  {
+    "Id": "DLC1VQ05",
+    "Name": "Beyond Death",
+    "ApId": "",
+    "Chain": 9
+  },
+  {
+    "Id": "DLC1VQElderHandler",
+    "Name": "Scroll Scouting",
+    "ApId": "",
+    "Chain": 9
+  },
+  {
+    "Id": "DLC1VQElder",
+    "Name": "Seeking Disclosure",
+    "ApId": "",
+    "Chain": 9
+  },
+  {
+    "Id": "DLC1VQ06",
+    "Name": "Unseen Visions",
+    "ApId": "",
+    "Chain": 9
+  },
+  {
+    "Id": "DLC1VQ07",
+    "Name": "Touching the Sky",
+    "ApId": "",
+    "Chain": 9
+  },
+  {
+    "Id": "DLC1VQ08",
+    "Name": "Kindred Judgment",
+    "ApId": "",
+    "Chain": 9
+  },
+  //Hearthfire Quests
+  {
+    "Id": "BYOHHouseFalkreath",
+    "Name": "",
+    "ApId": "",
+    "Chain": 10
+  },
+  {
+    "Id": "BYOHHousePale",
+    "Name": "",
+    "ApId": "",
+    "Chain": 10
+  },
+  {
+    "Id": "BYOHHouseHjaalmarch",
+    "Name": "",
+    "ApId": "",
+    "Chain": 10
+  },
+  //Dragonborn Quests
+  {
+    "Id": "DLC2MQ01",
+    "Name": "Dragonborn",
+    "ApId": "",
+    "Chain": 11
+  },
+  {
+    "Id": "DLC2MQ02",
+    "Name": "The Temple of Miraak",
+    "ApId": "",
+    "Chain": 11
+  },
+  {
+    "Id": "DLC2MQ03",
+    "Name": "The Fate of the Skaal",
+    "ApId": "",
+    "Chain": 11
+  },
+  {
+    "Id": "DLC2MQ03B",
+    "Name": "Cleansing the Stones",
+    "ApId": "",
+    "Chain": 11
+  },
+  {
+    "Id": "DLC2MQ04",
+    "Name": "The Path of Knowledge",
+    "ApId": "",
+    "Chain": 11
+  },
+  {
+    "Id": "DLC2MQ05",
+    "Name": "The Gardener of Men",
+    "ApId": "",
+    "Chain": 11
+  },
+  {
+    "Id": "DLC2MQ06",
+    "Name": "At the Summit of Apocrypha",
+    "ApId": "",
+    "Chain": 11
   }
 ]
